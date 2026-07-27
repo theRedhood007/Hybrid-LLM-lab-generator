@@ -1,0 +1,59 @@
+{
+  "attackType": "XSS",
+  "language": "JavaScript",
+  "framework": "Node.js Express",
+  "difficulty": "Advanced",
+  "theme": "support ticket preview",
+  "outputContract": {
+    "format": "Return exactly one valid JSON object. Do not include markdown or explanation.",
+    "requiredTopLevelFields": [
+      "labId",
+      "title",
+      "attackType",
+      "language",
+      "framework",
+      "difficulty",
+      "theme",
+      "description",
+      "expectedBehavior",
+      "vulnerableFiles",
+      "solutionFiles",
+      "functionalTests",
+      "securityPayloads"
+    ],
+    "important": [
+      "Do not use a metadata object as the only place for title, attackType, language, framework, difficulty, theme, or description.",
+      "All required fields must exist at the top level.",
+      "vulnerableFiles must be a non-empty array of objects with path and content.",
+      "solutionFiles must be a non-empty array of objects with path and content.",
+      "Do not use vulnerableFiles as an object map.",
+      "Do not use solutionFiles as an object map.",
+      "expectedBehavior must be an object with vulnerable and fixed fields."
+    ]
+  },
+  "nodeExpressStaticValidatorRules": [
+    "Both vulnerableFiles and solutionFiles must include package.json and app.js.",
+    "Each file object must use path and content fields.",
+    "package.json must include scripts.start.",
+    "package.json must include express dependency.",
+    "app.js must import Express using require(\"express\").",
+    "app.js must create the app using exactly: const app = express();",
+    "app.js must define the port using exactly: const port = process.env.PORT || 3000;",
+    "app.js must define at least one direct route using app.get(...).",
+    "Do not use express.Router().",
+    "Do not use router.get().",
+    "Do not use app.route().get().",
+    "app.js must start using app.listen(port, ...).",
+    "app.js must be readable multi-line JavaScript with at least 8 non-empty lines."
+  ],
+  "xssRules": [
+    "The vulnerable app must reflect user input into HTML without escaping.",
+    "The vulnerable app must not define or call escapeHtml.",
+    "The solution app must define an escapeHtml function.",
+    "The solution app must call escapeHtml on user-controlled input before rendering.",
+    "Do not use encodeURIComponent as the XSS fix.",
+    "The security payload must include an obvious XSS payload such as <script>alert(1)</script>.",
+    "expectedVulnerableResult must contain the raw script payload.",
+    "expectedFixedResult must contain &lt;script&gt;alert(1)&lt;/script&gt;."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "attackType": "XSS",
+  "language": "JavaScript",
+  "framework": "Node.js Express",
+  "difficulty": "Beginner",
+  "theme": "product search"
+}

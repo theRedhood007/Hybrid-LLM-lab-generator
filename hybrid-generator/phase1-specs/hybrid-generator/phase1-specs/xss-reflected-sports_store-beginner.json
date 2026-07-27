@@ -1,0 +1,55 @@
+{
+  "schema_version": "hybrid-lab-v1",
+  "slug": "xss-reflected-sports_store-beginner",
+  "title": "BEGINNER XSS Lab - Sportswear Store",
+  "difficulty": "beginner",
+  "vulnerability_type": "xss-reflected",
+  "description": {
+    "overview": "This lab demonstrates reflected XSS in a Sportswear Store.",
+    "learning_objectives": [
+      "Identify reflected user input in an HTML response",
+      "Exploit reflected XSS with a simple script payload",
+      "Fix the issue using output encoding"
+    ],
+    "student_task": "Find the unsafe handling of user-controlled input and patch it securely.",
+    "expected_fix": "Apply safe output encoding before rendering user-controlled input."
+  },
+  "scenario": {
+    "sector": "E-Commerce",
+    "name": "Sportswear Store",
+    "story": "A Sportswear Store allows users to submit or view user-controlled content.",
+    "attacker_goal": "Exploit reflected XSS through unsafe user input handling.",
+    "real_world_impact": "Account compromise, phishing, session exposure, admin compromise, or malicious redirection."
+  },
+  "runtime": {
+    "language": "javascript",
+    "framework": "node-express",
+    "port_env": "PORT",
+    "start_command": "npm start",
+    "health_endpoint": "/health"
+  },
+  "vulnerability": {
+    "pattern": "reflected",
+    "complexity": "single input, single page, obvious source-to-sink",
+    "payload": "<script>alert('xss')</script>",
+    "vulnerable_behavior": "User-controlled input reaches an HTML/DOM sink without proper escaping.",
+    "secure_behavior": "User-controlled input is safely encoded before reaching the sink."
+  },
+  "required_routes": [
+    "GET /",
+    "GET /search",
+    "GET /health"
+  ],
+  "required_files": [
+    "package.json",
+    "app.js",
+    "Dockerfile",
+    "tests/functional/test_functionality.py",
+    "tests/security/test_security.py"
+  ],
+  "docker": {
+    "base_image": "node:20-alpine",
+    "readonly_rootfs_compatible": true,
+    "non_root_user": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "hybrid-lab-v1",
+  "slug": "",
+  "title": "",
+  "difficulty": "",
+  "vulnerability_type": "",
+  "scenario": {
+    "sector": "",
+    "story": "",
+    "attacker_goal": "",
+    "real_world_impact": ""
+  },
+  "runtime": {
+    "language": "javascript",
+    "framework": "node-express",
+    "port_env": "PORT",
+    "start_command": "npm start",
+    "health_endpoint": "/health"
+  },
+  "vulnerability": {
+    "location": "",
+    "source": "",
+    "sink": "",
+    "vulnerable_behavior": "",
+    "secure_behavior": ""
+  },
+  "required_routes": [],
+  "required_files": [],
+  "security_tests": [],
+  "functional_tests": [],
+  "docker": {
+    "base_image": "node:20-alpine",
+    "readonly_rootfs_compatible": true,
+    "non_root_user": true
+  }
+}

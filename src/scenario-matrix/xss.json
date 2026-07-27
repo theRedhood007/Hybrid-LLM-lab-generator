@@ -1,0 +1,71 @@
+{
+  "vulnerability": "xss",
+  "difficulties": {
+    "beginner": [
+      {
+        "id": "product-search",
+        "title": "Product Search Reflection",
+        "description": "A sportswear store search page reflects the user's query without proper output encoding.",
+        "context": "online sportswear store",
+        "attack_surface": "search query parameter",
+        "expected_sink": "HTML response rendering",
+        "required_feature": "Search form that displays the searched keyword",
+         "route": "/product-search",
+         "params": ["q"]
+
+       },
+      {
+        "id": "comment-preview",
+        "title": "Comment Preview XSS",
+        "description": "A blog comment preview renders user input before posting, allowing reflected script execution.",
+        "context": "blog comment system",
+        "attack_surface": "comment preview box",
+        "expected_sink": "preview HTML rendering",
+        "required_feature": "Comment form with preview button",
+        "route": "/comment-preview",
+        "params": ["comment"]
+        
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "profile-bio",
+        "title": "User Profile Bio XSS",
+        "description": "A profile bio page stores user-controlled HTML and renders it to visitors without sanitization.",
+        "context": "social profile platform",
+        "attack_surface": "profile bio field",
+        "expected_sink": "stored profile rendering",
+        "required_feature": "Edit profile page and public profile page"
+      },
+      {
+        "id": "support-ticket",
+        "title": "Support Ticket Stored XSS",
+        "description": "A support ticket system stores customer messages and displays them in an admin view without proper escaping.",
+        "context": "customer support portal",
+        "attack_surface": "ticket message body",
+        "expected_sink": "admin ticket dashboard",
+        "required_feature": "Ticket creation page and admin ticket viewer"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "admin-audit-log",
+        "title": "Admin Audit Log XSS",
+        "description": "An admin audit log records attacker-controlled values and later renders them inside a privileged dashboard.",
+        "context": "enterprise admin dashboard",
+        "attack_surface": "logged username or action field",
+        "expected_sink": "admin audit log table",
+        "required_feature": "User action logger and admin audit page"
+      },
+      {
+        "id": "government-complaint-portal",
+        "title": "Government Complaint Portal XSS",
+        "description": "A public complaint portal stores citizen reports and renders them in a staff review panel without safe encoding.",
+        "context": "government services portal",
+        "attack_surface": "complaint description field",
+        "expected_sink": "staff complaint review page",
+        "required_feature": "Complaint submission page and staff review page"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "vulnerabilityType": "xss",
+  "difficulty": "beginner",
+  "scenarioId": "sports-store-search",
+  "businessContext": "Online sportswear store",
+  "labGoal": "Teach reflected XSS through a product search page.",
+  "requiredRoute": "/lab",
+  "requiredParam": "input",
+  "style": "realistic beginner lab with clear store scenario"
+}

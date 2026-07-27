@@ -1,0 +1,23 @@
+{
+  "name": "ollama-lab-generator-poc",
+  "version": "1.0.0",
+  "description": "Standalone Ollama proof-of-concept for secure coding lab generation and validation",
+  "main": "src/generateLab.js",
+  "scripts": {
+    "generate": "node src/generateLab.js",
+    "validate:lab": "node src/validateLab.js",
+    "validate:runtime": "node src/runtimeValidateLab.js",
+    "judge": "node src/judgeLab.js",
+    "generate:retry": "node src/generateWithRetry.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "dotenv": "^17.4.2",
+    "fs-extra": "^11.3.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.8.3"
+  }
+}

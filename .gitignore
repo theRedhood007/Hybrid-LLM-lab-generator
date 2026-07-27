@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Runtime
+.runtime-runs/
+runtime-error.log
+judge-output.txt
+
+# Generated output
+generated/
+generated-specs/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
