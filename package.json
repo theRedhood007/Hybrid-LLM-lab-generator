@@ -8,7 +8,11 @@
     "validate:lab": "node src/validateLab.js",
     "validate:runtime": "node src/runtimeValidateLab.js",
     "judge": "node src/judgeLab.js",
-    "generate:retry": "node src/generateWithRetry.js"
+    "generate:retry": "node src/generateWithRetry.js",
+    "generate:spec": "node src/generateLabSpec.js",
+    "validate:spec": "node src/validateLabSpec.js",
+    "compile:spec": "node src/compileSpecToLab.js",
+    "generate:publish": "node src/generateSpecAndPublish.js"
   },
   "dependencies": {
     "ajv": "^8.17.1",
