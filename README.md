@@ -1,4 +1,4 @@
-# Hybrid LLM Lab Generator
+\# Hybrid LLM Lab Generator
 <p align="center">
   <img src="docs/images/pipeline.png" alt="Hybrid LLM Pipeline" width="900">
 </p>
@@ -106,7 +106,31 @@ Static Validation   Runtime Validation
 
 ---
 
-## Project Structure
+## Structured Lab Specification
+
+Instead of generating application source code directly, the LLM produces a structured **LabSpec** describing the vulnerability scenario, learning objectives, attack surface, routes, inputs, and expected behavior. This specification is validated before deterministic compilation into a runnable secure coding laboratory.
+
+<p align="center">
+  <img src="docs/images/labspec.png" alt="Generated Lab Specification" width="900">
+</p>
+
+## Runtime Validation
+
+The runtime validator executes the generated laboratory in an isolated Docker environment. It verifies that the vulnerable implementation behaves as expected, confirms that the security tests detect the vulnerability, and then validates that the patched implementation passes both functional and security tests.
+
+<p align="center">
+  <img src="docs/images/runtime-validation.png" alt="Runtime Validation Pipeline" width="900">
+</p>
+
+## Platform Integration
+
+After passing all validation stages, the generated laboratory is imported into the **RedBlue Code** platform using the platform's validation and seeding pipeline. This step ensures that only validated laboratories become available to learners.
+
+<p align="center">
+  <img src="docs/images/platform-integration.png" alt="Platform Integration" width="900">
+</p>
+
+## project Structure
 
 ```
 .
@@ -295,6 +319,11 @@ The generator produces structured Lab Specifications (LabSpecs), validates them,
 ---
 
 ## Future Work
+Future versions of this project aim to replace static orchestration with a Model Context Protocol (MCP) architecture, enabling specialized agents to collaborate on generation, validation, compilation, and publishing while improving scalability and extensibility.
+
+<p align="center">
+  <img src="docs/images/mcp-architecture.png" width="900">
+</p>
 
 Future improvements include:
 
