@@ -1,4 +1,7 @@
 # Hybrid LLM Lab Generator
+<p align="center">
+  <img src="docs/images/pipeline.png" alt="Hybrid LLM Pipeline" width="900">
+</p>
 
 A hybrid Large Language Model (LLM) pipeline that automatically generates secure coding laboratories for the RedBlue Code training platform.
 
