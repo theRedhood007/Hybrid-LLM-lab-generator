@@ -108,11 +108,23 @@ Static Validation   Runtime Validation
 
 ## Structured Lab Specification
 
-Instead of generating application source code directly, the LLM produces a structured **LabSpec** describing the vulnerability scenario, learning objectives, attack surface, routes, inputs, and expected behavior. This specification is validated before deterministic compilation into a runnable secure coding laboratory.
+Instead of generating application source code directly, the LLM produces a structured **LabSpec** describing the vulnerability scenario, learning objectives, attack surface, routes, inputs, and expected behavior. This specification is first validated through an automated static validation pipeline before deterministic compilation into a runnable secure coding laboratory.
 
 <p align="center">
   <img src="docs/images/labspec.png" alt="Generated Lab Specification" width="900">
 </p>
+
+---
+
+## Automated Static Validation
+
+Before compilation, every generated lab undergoes an automated static validation phase. This validator verifies the generated structure, required files, package configuration, test definitions, and vulnerability-specific constraints. Any invalid candidate is rejected before compilation, ensuring that only structurally correct and platform-compatible specifications continue through the pipeline.
+
+<p align="center">
+  <img src="docs/images/static-validation.png" alt="Static Validation Pipeline" width="900">
+</p>
+
+---
 
 ## Runtime Validation
 
@@ -122,6 +134,8 @@ The runtime validator executes the generated laboratory in an isolated Docker en
   <img src="docs/images/runtime-validation.png" alt="Runtime Validation Pipeline" width="900">
 </p>
 
+---
+
 ## Platform Integration
 
 After passing all validation stages, the generated laboratory is imported into the **RedBlue Code** platform using the platform's validation and seeding pipeline. This step ensures that only validated laboratories become available to learners.
@@ -129,6 +143,8 @@ After passing all validation stages, the generated laboratory is imported into t
 <p align="center">
   <img src="docs/images/platform-integration.png" alt="Platform Integration" width="900">
 </p>
+
+---
 
 ## project Structure
 
